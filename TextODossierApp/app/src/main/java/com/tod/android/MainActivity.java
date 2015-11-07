@@ -1,24 +1,24 @@
 package com.tod.android;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-public class TodActivity extends AppCompatActivity {
-    
-    private TextView mTvHelloMsg;
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
+public class MainActivity extends AppCompatActivity {
+    @Bind(R.id.hello_msg)
+    protected TextView mTvHelloMsg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-//        String value = getIntent().getExtras().getString(key)
-
-
+        // Bind ui with ButterKnife
+        ButterKnife.bind(this);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
