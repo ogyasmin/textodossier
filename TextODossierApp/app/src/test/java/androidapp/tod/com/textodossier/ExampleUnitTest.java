@@ -1,4 +1,4 @@
-package androidapp.tod.com.textodossier;
+package androidapp.tod.com.androidapp;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package androidapp.tod.com.textodossier;
+package androidapp.tod.com.androidapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
