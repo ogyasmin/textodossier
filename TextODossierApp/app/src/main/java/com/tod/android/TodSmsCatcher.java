@@ -33,10 +33,15 @@ public class TodSmsCatcher extends BroadcastReceiver {
                     final String mess = messages[0].getDisplayMessageBody();
                     final String phoneNumber = messages[0].getDisplayOriginatingAddress();
                     if (mess.startsWith(TOD_PATTERN)) {
-                        String messageComplete;
+                        handleTodSms(mess);
                     }
                 }
             }
         }
+    }
+
+    private void handleTodSms(String todsms){
+        Log.v(TAG,"SMS RECEIVED-- This SMS is for TOD");
+
     }
 }
