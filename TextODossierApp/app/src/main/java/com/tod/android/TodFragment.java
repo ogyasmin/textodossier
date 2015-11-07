@@ -1,4 +1,4 @@
-package androidapp.tod.com.androidapp;
+package com.tod.android;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -9,9 +9,9 @@ import android.view.ViewGroup;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class MainActivityFragment extends Fragment {
+public class TodFragment extends Fragment {
 
-    public MainActivityFragment() {
+    public TodFragment() {
     }
 
     @Override

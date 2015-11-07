@@ -1,4 +1,4 @@
-package androidapp.tod.com.androidapp;
+package com.tod.android;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

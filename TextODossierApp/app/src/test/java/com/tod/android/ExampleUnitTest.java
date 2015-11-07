@@ -1,4 +1,4 @@
-package androidapp.tod.com.androidapp;
+package com.tod.android;
 
 import org.junit.Test;
 

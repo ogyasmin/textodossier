@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.0"
 
     defaultConfig {
-        applicationId "androidapp.tod.com.textodossier"
+        applicationId "com.tod.android"
         minSdkVersion 16
         targetSdkVersion 23
         versionCode 1
