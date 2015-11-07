@@ -5,17 +5,20 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.telephony.SmsMessage;
+import android.util.Log;
 
 /**
  * Simons project - Human Equation - http://www.equationhumaine.co
  * Created by yorouguidou on 15-11-07.
  */
 public class TodSmsCatcher extends BroadcastReceiver {
+    public static final String TAG = "TOD_SMS_CATCHER";
     private final String   ACTION_RECEIVE_SMS  = "android.provider.Telephony.SMS_RECEIVED";
     public static final String   TOD_PATTERN  = "TOD:";
 
     @Override
     public void onReceive(Context context, Intent intent) {
+        Log.v(TAG,"SMS RECEIVED");
         if (intent.getAction().equals(ACTION_RECEIVE_SMS)) {
             Bundle bundle = intent.getExtras();
             if (bundle != null) {
