@@ -5,7 +5,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="250dp"
         android:background="@drawable/id_nurse">
 
         <TextView
@@ -20,18 +20,35 @@
             android:textSize="40sp"
             android:textStyle="bold" />
     </RelativeLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="48dp">
+        android:padding="48dp"
+        android:gravity="center"
+        android:id="@+id/ll_traitements_else">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="48sp"
+        android:textColor="#000000"
+        android:gravity="center"
+        android:text="Soins quotidiens"/>
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="48dp"
+        android:visibility="gone"
+        android:id="@+id/ll_traitements">
 
         <LinearLayout
             android:id="@+id/ll_row_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/label_row_1"
@@ -43,6 +60,7 @@
                 android:id="@+id/ed_row_1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
                 android:layout_weight="1" />
         </LinearLayout>
 
@@ -50,7 +68,8 @@
             android:id="@+id/ll_row_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/label_row_2"
@@ -61,6 +80,7 @@
             <EditText
                 android:id="@+id/ed_row_2"
                 android:layout_width="0dp"
+                android:inputType="numberDecimal"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
         </LinearLayout>
@@ -69,7 +89,8 @@
             android:id="@+id/ll_row_3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/label_row_3"
@@ -80,8 +101,17 @@
             <EditText
                 android:id="@+id/ed_row_3"
                 android:layout_width="0dp"
+                android:inputType="numberDecimal"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
         </LinearLayout>
+        <Button
+            android:id="@+id/confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:text="Envoyer"
+            android:layout_margin="10dp"/>
     </LinearLayout>
+
 </LinearLayout>

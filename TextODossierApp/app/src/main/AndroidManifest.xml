@@ -15,12 +15,14 @@
 
         <activity
             android:name=".TodSmsActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
 
         </activity>
         <activity
             android:name=".NurseActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
 
         </activity>
         <receiver android:name=".TodSmsCatcher" >

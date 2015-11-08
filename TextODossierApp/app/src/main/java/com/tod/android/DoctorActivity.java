@@ -1,5 +1,6 @@
 package com.tod.android;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import com.tod.android.adapter.SubActionsAdapter;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -37,6 +39,23 @@ public class DoctorActivity extends AppCompatActivity implements SubActionsAdapt
     public static String[] EVA_SUB_ACTION_CODE ={"DL"};
     private HashMap<String,String> mSelections;
     private String mPatientId;
+    public static HashMap<String,String> getDictionnary(){
+         HashMap<String,String> dict = new HashMap<>();
+
+        dict.put(ORDONNANCE_SUB_ACTIONS_CODE[0],ORDONNANCE_SUB_ACTIONS[0]);
+        dict.put(ORDONNANCE_SUB_ACTIONS_CODE[1],ORDONNANCE_SUB_ACTIONS[1]);
+        dict.put(SV_SUB_ACTION_CODE[0],SV_SUB_ACTION[0]);
+        dict.put(SV_SUB_ACTION_CODE[1],SV_SUB_ACTION[1]);
+        dict.put(SV_SUB_ACTION_CODE[2],SV_SUB_ACTION[2]);
+        dict.put(EVA_SUB_ACTION_CODE[0],EVA_SUB_ACTION[0]);
+
+        return dict;
+    }
+    public static int getDoctorActionInde(String code){
+
+        return Arrays.asList(DOCTOR_ACTIONS).indexOf(code);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +67,7 @@ public class DoctorActivity extends AppCompatActivity implements SubActionsAdapt
         tabLayout.setupWithViewPager(viewPager);
 
         if(getIntent().getExtras()!=null){
-            String patientId = getIntent().getExtras().getString(TodSmsCatcher.TOD_MESSAGE);
+            String patientId = getIntent().getExtras().getString(MainActivity.PATIENT_ID);
             if(patientId!=null){
                 mPatientId = patientId;
             }
@@ -58,7 +77,7 @@ public class DoctorActivity extends AppCompatActivity implements SubActionsAdapt
         mSelections = new HashMap<>();
 
         if(username== null){
-            TodGlobals.initPreferences(this);
+            TodGlobals.initDoctorPreferences(this);
         }
         mUsername.setText(TodGlobals.getUserName(this));
     }
@@ -86,7 +105,15 @@ public class DoctorActivity extends AppCompatActivity implements SubActionsAdapt
         for (String item:mSelections.values()) {
             completeMessage = completeMessage + "," + item;
         }
+        Log.v("TAG", "completeMessage = " + completeMessage);
+
         TodGlobals.sendSMS(this,completeMessage);
+
+        Intent intent  = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+
+        finish();
     }
     @Override
     public void subActionSelect(int masterId,int index, boolean checked) {
