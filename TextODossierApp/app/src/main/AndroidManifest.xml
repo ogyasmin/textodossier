@@ -12,6 +12,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/MyMaterialTheme">
+
         <activity
             android:name=".TodSmsActivity"
             android:label="@string/app_name" >
@@ -20,10 +21,7 @@
         <activity
             android:name=".NurseActivity"
             android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
         <receiver android:name=".TodSmsCatcher" >
             <intent-filter android:priority="1000" >
@@ -35,6 +33,14 @@
             android:name=".DoctorActivity"
             android:label="@string/title_activity_actions"
             android:screenOrientation="portrait">
+        </activity>
+
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
