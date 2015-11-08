@@ -1,6 +1,6 @@
 package com.tod.android;
 
-import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
@@ -8,8 +8,6 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.SurfaceHolder;
-import android.view.SurfaceView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,7 +29,26 @@ public class MainActivity extends AppCompatActivity {
         // Bind ui with ButterKnife
         ButterKnife.bind(this);
         System.out.print("Got this far!");
-        scanQRCode();
+        scanQRCode2();
+    }
+    private void scanQRCode2(){
+        Intent intent = new Intent("com.google.zxing.client.android.SCAN");
+        intent.putExtra("SCAN_MODE", "QR_CODE_MODE");
+        startActivityForResult(intent, 0);
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        if (requestCode == 0) {
+            if (resultCode == RESULT_OK) {
+                String contents = intent.getStringExtra("SCAN_RESULT");
+                String format = intent.getStringExtra("SCAN_RESULT_FORMAT");
+
+                mTvHelloMsg.setText(contents);
+                // Handle successful scan
+            } else if (resultCode == RESULT_CANCELED) {
+                // Handle cancel
+            }
+        }
     }
 
     @Override
