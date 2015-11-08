@@ -44,12 +44,16 @@ public class TodSmsCatcher extends BroadcastReceiver {
 
     private void handleTodSms(String todsms,Context context){
         Log.v(TAG, "SMS RECEIVED-- This SMS is for TOD");
-        Intent intent = new Intent(context, TodSmsActivity.class);
+        Intent intent ;
+        if(todsms.startsWith("J0N1P0"))
+            intent = new Intent(context, DoctorActivity.class);
+        else
+            intent = new Intent(context, NurseActivity.class);
+
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         Bundle mBundle = new Bundle();
         mBundle.putString(TOD_MESSAGE, todsms);
         intent.putExtras(mBundle);
-
         context.startActivity(intent);
     }
 }
