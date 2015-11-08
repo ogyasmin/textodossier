@@ -11,7 +11,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
-    private static final int MY_PERMISSIONS_CAMERA = 0;
+    public static final String PATIENT_ID  = "PATIENT_ID";
     @Bind(R.id.hello_msg)
     protected TextView mTvHelloMsg;
     @Override
@@ -33,9 +33,8 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == 0) {
             if (resultCode == RESULT_OK) {
                 String contents = intent.getStringExtra("SCAN_RESULT");
-                String format = intent.getStringExtra("SCAN_RESULT_FORMAT");
-
                 mTvHelloMsg.setText(contents);
+                routeWithPatientId(contents);
                 // Handle successful scan
             } else if (resultCode == RESULT_CANCELED) {
                 // Handle cancel
@@ -43,6 +42,21 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void routeWithPatientId(String patient){
+
+        Intent intent ;
+        if(TodGlobals.getUserTitle(this).equals(TodGlobals.NURSE))
+            intent = new Intent(this, NurseActivity.class);
+        else
+            intent = new Intent(this, DoctorActivity.class);
+
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        Bundle mBundle = new Bundle();
+        mBundle.putString(TodSmsCatcher.TOD_MESSAGE, patient);
+        intent.putExtras(mBundle);
+        startActivity(intent);
+
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

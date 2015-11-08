@@ -15,7 +15,8 @@ public class TodGlobals {
     public static final String PREF_TITLE_TAG="com.tod.prefs.title";
     public static final String TEXT_O_DOSSIER_NUMBER="+15145187959";//"+15148123755";
 
-    public static final String USER_TITLE="Dr.";
+    public static final String NURSE="Nr.";
+    public static final String DOCTOR="Dr.";
     public static final String USER_NAME="Dr. Brais";
     public static void saveUserIds(Context context, String namePreference,String titlePreference){
         // Restore preferences
@@ -30,7 +31,7 @@ public class TodGlobals {
         return settings.getString(tag,"");
     }
     public static void initPreferences(Context context){
-        saveUserIds(context, USER_NAME, USER_TITLE);
+        saveUserIds(context, USER_NAME, NURSE);
     }
     public static String getUserTitle(Context context){
         return readPreferences(context,PREF_TITLE_TAG);

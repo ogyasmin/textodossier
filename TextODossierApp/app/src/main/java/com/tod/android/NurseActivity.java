@@ -21,14 +21,7 @@ public class NurseActivity extends AppCompatActivity{
     @Bind(R.id.label_row_1) protected TextView labelRow1;
     @Bind(R.id.label_row_2) protected TextView labelRow2;
     @Bind(R.id.label_row_3) protected TextView labelRow3;
-    private static String[] DOCTOR_ACTIONS ={"Nouvelle ordonnance", "Signes vitaux","Evaluations"};
-    private static String[] DOCTOR_ACTIONS_CODE ={"NO", "SV","EV"};
-    private static String[] ORDONNANCE_SUB_ACTIONS ={"Antihypertenseur", "Per OS"};
-    private static String[] ORDONNANCE_SUB_ACTIONS_CODE ={"ATHT", "PO"};
-    private static String[] SV_SUB_ACTION ={"Pression Artérielle", "Pouls","Température","Saturations"};
-    private static String[] SV_SUB_ACTION_CODE ={"PA", "PL","TP","SAO2"};
-    private static String[] EVA_SUB_ACTION ={"Douleurs"};
-    private static String[] EVA_SUB_ACTION_CODE ={"DL"};
+
     private String mPatientId;
     private String[] mActions;
     private ArrayList<NurseOperation> mNurseOperations;
