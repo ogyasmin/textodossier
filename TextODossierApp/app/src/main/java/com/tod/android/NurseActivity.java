@@ -120,13 +120,13 @@ public class NurseActivity extends AppCompatActivity{
     protected void onBtConfirmClicked(){
         int index = 0;
         String msg="TOD:" + mCodePostal + "," + mPatientId ;
-        if(labelRow1.getVisibility() == View.VISIBLE){
+        if(mNurseOperations.size()>0){
             msg = msg + "," + mNurseOperations.get(index++).getCode() + "=" + mEditRow1.getText().toString().replace(",",".");
         }
-        if(labelRow2.getVisibility() == View.VISIBLE){
+        if(mNurseOperations.size()>1){
             msg = msg + "," + mNurseOperations.get(index++).getCode() + "=" + mEditRow1.getText().toString().replace(",", ".");
         }
-        if(labelRow3.getVisibility() == View.VISIBLE){
+        if(mNurseOperations.size()>2){
             msg = msg + "," + mNurseOperations.get(index++).getCode() + "=" + mEditRow1.getText().toString().replace(",",".");
         }
         Log.v(TAG,msg);

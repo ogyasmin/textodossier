@@ -1,6 +1,7 @@
 package com.tod.android;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -50,6 +51,16 @@ public class MainActivity extends AppCompatActivity {
                 if(contents.startsWith(SCHEME_SETTING)) {
                     routeSettingUserTitle(contents.substring(SCHEME_SETTING.length()));
                 }
+                if(contents.startsWith("SMSTO:")){
+                    String[] splits =contents.split(":");  // The number on which you want to send SMS
+                    if(splits.length>=2) {
+                        Uri uri = Uri.parse("smsto:" + splits[1]);
+                        Intent it = new Intent(Intent.ACTION_SENDTO, uri);
+                        it.putExtra("sms_body", splits[2]);
+                        startActivity(it);
+                        finish();
+                    }
+                }
                 // Handle successful scan
             } else if (resultCode == RESULT_CANCELED) {
                 // Handle cancel
@@ -75,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
         mTvHelloMsg.setText(String.format(" Setting:  %s as a %s ",name, titleToSet));
     }
     private void routeWithPatientId(String patient){
-        Log.v("Scan",patient);
+        Log.v("Scan", patient);
 
         Intent intent ;
         if(TodGlobals.getUserTitle(this).equals(TodGlobals.NURSE))
