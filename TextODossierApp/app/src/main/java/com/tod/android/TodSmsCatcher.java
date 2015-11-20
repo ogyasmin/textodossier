@@ -8,7 +8,6 @@ import android.telephony.SmsMessage;
 import android.util.Log;
 
 /**
- * Created by yorouguidou on 15-11-07.
  */
 public class TodSmsCatcher extends BroadcastReceiver {
     public static final String TAG = "TOD_SMS_CATCHER";
