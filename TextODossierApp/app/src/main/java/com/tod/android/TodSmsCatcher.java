@@ -8,7 +8,6 @@ import android.telephony.SmsMessage;
 import android.util.Log;
 
 /**
- * Simons project - Human Equation - http://www.equationhumaine.co
  * Created by yorouguidou on 15-11-07.
  */
 public class TodSmsCatcher extends BroadcastReceiver {
